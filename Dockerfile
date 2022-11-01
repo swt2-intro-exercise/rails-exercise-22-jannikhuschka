@@ -5,10 +5,6 @@ RUN apt-get update \
 		sqlite3 \
 	&& rm -rf /var/lib/apt/lists/*
 
-WORKDIR /usr/src/app
-COPY Gemfile* ./
-RUN bundle install
-COPY . .
+WORKDIR /app
 
-EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["tail", "-f", "/dev/null"]
