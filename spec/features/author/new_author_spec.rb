@@ -22,4 +22,20 @@ describe "New author page", type: :feature do
     expect(page).to have_text('Edsger Dijkstra')
     expect(page).to have_text('https://de.wikipedia.org/wiki/Edsger_W._Dijkstra')
   end
+
+  it "should not continue if the author has no last name" do
+    visit new_author_path
+    page.fill_in 'author[first_name]', with: 'No'
+    page.fill_in 'author[homepage]', with: 'http://wikipedia.de/No_Lastname'
+    find('input[type="submit"]').click
+    expect(page).to have_path(new_author_path)
+  end
+
+  it "should not continue if the author has no first name" do
+    visit new_author_path
+    page.fill_in 'author[last_name]', with: 'No'
+    page.fill_in 'author[homepage]', with: 'http://wikipedia.de/No_Firstname'
+    find('input[type="submit"]').click
+    expect(page).to have_path(new_author_path)
+  end
 end
