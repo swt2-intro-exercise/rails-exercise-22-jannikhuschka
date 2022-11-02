@@ -1,6 +1,10 @@
 class AuthorsController < ApplicationController
     def new
     end
+
+    def index
+        @authors = Author.all
+    end
     
     def create
         @author = Author.new(author_params)
