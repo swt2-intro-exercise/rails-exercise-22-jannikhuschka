@@ -11,7 +11,7 @@ describe "Show author page", type: :feature do
         visit author_path(alan)
         expect(page).to have_text(alan.first_name)
         expect(page).to have_text(alan.last_name)
-        expect(page).to have_link 'Homepage' , href: alan.homepage
+        expect(page).to have_text(alan.homepage)
     end
 
 end
