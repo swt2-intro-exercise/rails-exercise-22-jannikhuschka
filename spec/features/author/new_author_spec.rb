@@ -25,17 +25,17 @@ describe "New author page", type: :feature do
 
   it "should not continue if the author has no last name" do
     visit new_author_path
-    page.fill_in 'author[first_name]', with: 'No'
-    page.fill_in 'author[homepage]', with: 'http://wikipedia.de/No_Lastname'
+    page.fill_in 'author[first_name]', with: 'Edsger'
+    page.fill_in 'author[homepage]', with: 'https://de.wikipedia.org/wiki/Edsger_W._Dijkstra'
     find('input[type="submit"]').click
-    expect(page).to have_path(new_author_path)
+    expect(page).to have_text('error')
   end
 
   it "should not continue if the author has no first name" do
     visit new_author_path
-    page.fill_in 'author[last_name]', with: 'No'
-    page.fill_in 'author[homepage]', with: 'http://wikipedia.de/No_Firstname'
+    page.fill_in 'author[last_name]', with: 'Dijkstra'
+    page.fill_in 'author[homepage]', with: 'https://de.wikipedia.org/wiki/Edsger_W._Dijkstra'
     find('input[type="submit"]').click
-    expect(page).to have_path(new_author_path)
+    expect(page).to have_text('error')
   end
 end
