@@ -1,0 +1,11 @@
+<h2>Author index</h2>
+ <table>
+    <tr><th>Author</th><th>homepage</th></tr>
+    <% @authors.each do |author| %>
+        <tr>
+            <td><%= author.name %></td>
+            <td><%= author.homepage %></td>
+        </tr>
+    <% end %>
+</table> 
+<%= link_to 'New', new_author_path %>
