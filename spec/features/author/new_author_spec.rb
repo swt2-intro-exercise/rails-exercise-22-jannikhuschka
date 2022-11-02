@@ -19,6 +19,7 @@ describe "New author page", type: :feature do
     page.fill_in 'author[last_name]', with: 'Dijkstra'
     page.fill_in 'author[homepage]', with: 'https://de.wikipedia.org/wiki/Edsger_W._Dijkstra'
     find('input[type="submit"]').click
-    expect(page).to have_text('Success')
+    expect(page).to have_text('Edsger Dijkstra')
+    expect(page).to have_link 'Homepage' , href: 'https://de.wikipedia.org/wiki/Edsger_W._Dijkstra'
   end
 end
