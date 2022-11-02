@@ -9,7 +9,8 @@ describe "Show author page", type: :feature do
     it "should show the author's data correctly" do
         alan = FactoryBot.create :author
         visit author_path(alan)
-        expect(page).to have_text(alan.name)
+        expect(page).to have_text(alan.first_name)
+        expect(page).to have_text(alan.last_name)
         expect(page).to have_link 'Homepage' , href: alan.homepage
     end
 
