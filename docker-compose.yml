@@ -1,8 +1,7 @@
 services:
   dev:
-    # image: rails-exercise
     build: .
     ports:
       - "3000:3000"
     volumes:
-      - /Users/jannikhuschka/Desktop/Uni/SSE/rails-exercise-22-jannikhuschka:/app
+      - .:/app

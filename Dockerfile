@@ -6,5 +6,9 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
+#COPY Gemfile* ./
+#RUN bundle install
+#COPY . .
 
+#EXPOSE 3000
 CMD ["tail", "-f", "/dev/null"]
