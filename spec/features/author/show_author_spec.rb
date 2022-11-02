@@ -6,7 +6,7 @@ describe "Show author page", type: :feature do
         visit author_path(alan)
     end
 
-    it "should exist at 'author_path' and render withour error" do
+    it "should show the author's data correctly" do
         alan = FactoryBot.create :author
         visit author_path(alan)
         expect(page).to have_text(alan.name)
