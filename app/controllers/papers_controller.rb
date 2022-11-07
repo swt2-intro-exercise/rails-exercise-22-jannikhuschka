@@ -1,9 +1,17 @@
 class PapersController < ApplicationController
   before_action :set_paper, only: %i[ show edit update destroy ]
 
+  def self.published_in(year)
+    Paper.where("year = ?", year) if year.present?
+  end
+
   # GET /papers
   def index
-    @papers = Paper.all
+    # if params[:year].present?
+    #   @papers = self.class.published_in(params[:year])
+    # else
+      @papers = Paper.all
+    # end
   end
 
   # GET /papers/1

@@ -37,4 +37,12 @@ describe "Paper index page", type: :feature do
     visit papers_path
     expect(page).to have_link('delete', href: paper_path(paper))
   end
+
+  it "should have a query field for year" do
+    paper1 = FactoryBot.create :paper
+    paper2 = FactoryBot.create :paper2
+    visit papers_path(year: 1950)
+    expect(page).to have_text(paper1.title)
+    expect(page).not_to have_text(paper2.title)
+  end
 end
