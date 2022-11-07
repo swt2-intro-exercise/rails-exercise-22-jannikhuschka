@@ -7,11 +7,11 @@ class PapersController < ApplicationController
 
   # GET /papers
   def index
-    # if params[:year].present?
-    #   @papers = self.class.published_in(params[:year])
-    # else
+    if params[:year].present?
+      @papers = self.class.published_in(params[:year])
+    else
       @papers = Paper.all
-    # end
+    end
   end
 
   # GET /papers/1
