@@ -23,4 +23,16 @@ RSpec.describe "papers/index", type: :view do
     assert_select cell_selector, text: Regexp.new("Venue".to_s), count: 2
     assert_select cell_selector, text: Regexp.new(2.to_s), count: 2
   end
+
+  it "should have a link to edit papers" do
+    paper = FactoryBot.create :paper
+    visit papers_path
+    expect(page).to have_link('Edit', href: edit_paper_path(paper))
+  end
+
+  it "should have a link to delete papers" do
+    paper = FactoryBot.create :paper
+    visit papers_path
+    expect(page).to have_link('Destroy', href: paper_path(paper))
+  end
 end
