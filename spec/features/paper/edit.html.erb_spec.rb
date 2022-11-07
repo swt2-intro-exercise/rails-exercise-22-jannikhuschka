@@ -26,3 +26,13 @@ RSpec.describe "papers/edit", type: :view do
     end
   end
 end
+
+describe "Edit paper page", type: :feature do
+  it "should have a select box for authors" do
+    alan = FactoryBot.create :turing
+    paper = FactoryBot.create :paper
+    visit edit_paper_path(paper)
+    expect(page).to have_select('paper_author_ids')
+    expect(page).to have_text(alan.name)
+  end
+end

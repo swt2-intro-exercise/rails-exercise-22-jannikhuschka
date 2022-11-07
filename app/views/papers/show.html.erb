@@ -1,9 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @paper %>
-<% @paper.authors.each do |author| %>
-  <p> Author: <%= author.name %></p>
-<% end %>
+<p><strong>Authors:</strong>
+  <% @paper.authors.each do |author| %>
+    <%= author.name %>,
+  <% end %>
+</p>
 
 <div>
   <%= link_to "Edit this paper", edit_paper_path(@paper) %> |
